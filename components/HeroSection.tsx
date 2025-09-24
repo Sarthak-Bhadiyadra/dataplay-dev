@@ -6,14 +6,14 @@ import { Icon } from "@iconify/react";
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-[#F7EEFA]">
+    <section className="relative bg-[#F7EEFA] overflow-hidden">
       <div className="container">
-        <div className="grid grid-cols-2 gap-20 items-end">
+        <div className="grid lg:grid-cols-2 2xl:gap-20 lg:gap-10 items-end">
           {/* Left Content */}
-          <div className="relative py-20">
+          <div className="relative py-16 md:py-20">
             <div className="relative">
               {/* Never Stop Learning */}
-              <h5 className="text-darkBlue text-[2.188rem] font-semibold mb-4">
+              <h5 className="text-darkBlue 2xl:text-4xl xl:text-3xl text-2xl font-semibold mb-4">
                 Never Stop
                 <span className="relative ml-3 inline-flex items-center justify-center text-white font-bold ">
                   <span className="relative z-[1] ">Learning</span>
@@ -34,7 +34,7 @@ const HeroSection = () => {
                     width={53}
                     height={53}
                     alt="Learning Vector 2"
-                    className="absolute -right-16 -top-12"
+                    className="absolute -right-12 md:-right-16 -top-12 "
                     loading="lazy"
                   />
                 </span>
@@ -42,7 +42,7 @@ const HeroSection = () => {
 
               {/* Main Heading */}
               <h1
-                className="text-darkBlue text-6xl font-bold mb-10"
+                className="text-darkBlue 2xl:text-6xl xl:text-5xl text-4xl font-bold mb-10"
                 data-aos="fade-right"
               >
                 Empowering Careers In DATA and{" "}
@@ -65,53 +65,53 @@ const HeroSection = () => {
               </h1>
 
               {/* Description */}
-              <p className="text-darkBlue text-3xl relative block font-bold mb-20">
+              <p className="text-darkBlue 2xl:text-3xl xl:text-2xl text-xl relative block font-bold 2xl:mb-20 mb-14">
                 Let&apos;s Sculpt YOUR Path To Success, YOUR Way !
               </p>
 
               {/* Statistics Section */}
               <div
-                className="flex flex-wrap items-center gap-8"
+                className="flex max-md:flex-wrap md:grid md:grid-cols-3 items-start 2xl:gap-8 md:gap-4 gap-6 max-md:justify-center "
                 data-aos="fade-up"
               >
                 {/* 3K+ Upskilled */}
                 <div className="flex flex-col items-center gap-3">
-                  <div className="size-[72px] bg-[#749BFF] drop-shadow-[4px_4px_0_#2A11DF] rounded-full flex-center">
+                  <div className="2xl:size-[72px] xl:size-[62px] size-[52px] bg-[#749BFF] drop-shadow-[4px_4px_0_#2A11DF] rounded-full flex-center">
                     <Icon
                       icon="ph:student"
-                      className="size-10 text-black"
+                      className="2xl:size-10 size-8 text-black"
                       strokeWidth={2}
                     />
                   </div>
-                  <div className="text-lg font-bold text-black">
+                  <div className="2xl:text-lg md:text-base text-sm font-bold text-black text-center">
                     3K + Upskilled
                   </div>
                 </div>
 
                 {/* 4.9 ★ Google Rating */}
                 <div className="flex flex-col items-center gap-3">
-                  <div className="size-[72px] bg-[#FF6F63] drop-shadow-[4px_4px_0_#FF2714] rounded-full flex-center">
+                  <div className="2xl:size-[72px] xl:size-[62px] size-[52px] bg-[#FF6F63] drop-shadow-[4px_4px_0_#FF2714] rounded-full flex-center">
                     <Icon
                       icon="iconoir:user-star"
-                      className="size-10 text-black"
+                      className="2xl:size-10 size-8 text-black"
                       strokeWidth={2}
                     />
                   </div>
 
-                  <div className="text-lg font-bold text-black">
-                    4.9 ★ Google Rating
+                  <div className="2xl:text-lg md:text-base text-sm font-bold text-black text-center">
+                    4.9 <span className="text-yellow-500">★</span> Google Rating
                   </div>
                 </div>
                 <div className="flex flex-col items-center gap-3">
-                  <div className="size-[72px] bg-[#01A5EC] drop-shadow-[4px_4px_0_#01688D] rounded-full flex-center">
+                  <div className="2xl:size-[72px] xl:size-[62px] size-[52px] bg-[#01A5EC] drop-shadow-[4px_4px_0_#01688D] rounded-full flex-center">
                     <Icon
                       icon="circum:linkedin"
-                      className="size-10 text-black"
+                      className="2xl:size-10 size-8 text-black"
                       strokeWidth={2}
                     />
                   </div>
 
-                  <div className="text-lg font-bold text-black">
+                  <div className="2xl:text-lg md:text-base text-sm font-bold text-black text-center">
                     9K+ Community
                   </div>
                 </div>
@@ -120,11 +120,11 @@ const HeroSection = () => {
           </div>
 
           {/* Right Image Section */}
-          <div className="relative w-full">
+          <div className="relative max-md:-mt-20 max-md:w-[120%] w-full block right-0">
             <img
               src="/hero-img2.png"
               alt="banner-img"
-              className="w-full h-auto"
+              className="relative block w-full h-auto"
             />
           </div>
         </div>

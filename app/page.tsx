@@ -12,28 +12,13 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-
-      {/* Features Section */}
       <Features />
-
-      {/* Fellowship Programs Section */}
       <FellowshipPrograms />
-
-      {/* Courses Section */}
       <Courses />
-
-      {/* Mentors Section */}
       <Mentors />
-
-      {/* Testimonials Section */}
       <Testimonials />
-
-      {/* Who Can Apply Section */}
       <WhoCanApply />
-
-      {/* Gallery Section */}
       <Gallery />
-
       <Footer />
     </>
   );

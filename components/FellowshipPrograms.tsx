@@ -1,26 +1,31 @@
 const FellowshipPrograms = () => {
   return (
-    <section className="relative py-20">
+    <section className="relative py-16 lg:py-20">
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className="relative h-[500px]">
-            <iframe
-              className="w-full h-full rounded-3xl border border-black drop-shadow-[8px_8px_0_#1C1A4A] "
-              src="https://www.youtube.com/embed/3JZ_D3ELwOQ"
-              title="WELCOME TO DATAPLAY"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
+          {/* Video Section */}
+          <div className="relative order-2 lg:order-1">
+            <div className="relative max-lg:aspect-video lg:h-[500px] w-full">
+              <iframe
+                className="w-full h-full rounded-2xl sm:rounded-3xl border border-black drop-shadow-[4px_4px_0_#1C1A4A] sm:drop-shadow-[6px_6px_0_#1C1A4A] lg:drop-shadow-[8px_8px_0_#1C1A4A]"
+                src="https://www.youtube.com/embed/3JZ_D3ELwOQ"
+                title="WELCOME TO DATAPLAY"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
           </div>
 
-          <div className="relative flex flex-col items-start leading-none gap-6">
-            <div className="inline-block bg-purple text-white px-6 py-2 rounded-full text-[22px] font-semibold">
-              COURSES
+          {/* Content Section */}
+          <div className="relative flex flex-col items-start leading-none gap-4 sm:gap-6 order-1 lg:order-2">
+            <div className="relative lg:-mb-3 inline-block bg-purple text-white px-4 py-1 rounded-full text-base sm:text-lg lg:text-[22px] font-semibold">
+              Welcome to DataPlay
             </div>
-            <h2 className="text-[50px] font-bold text-black pr-20">
+
+            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[50px] font-bold text-black pr-0 sm:pr-4 lg:pr-8 xl:pr-20 leading-tight">
               Your Compass On The
-              <span className="relative inline-flex items-center justify-center">
+              <span className="relative inline-flex items-center justify-center ml-2">
                 <svg
                   className="absolute h-full w-full scale-[115%]"
                   viewBox="0 0 349 55"
@@ -33,16 +38,19 @@ const FellowshipPrograms = () => {
                   />
                 </svg>
 
-                <span className="relative z-[1] font-black text-white">Data Science</span>
+                <span className="relative z-[1] font-black text-white">
+                  Data Science
+                </span>
               </span>{" "}
-              Journey. 
+              Journey.
             </h2>
-            <div className="text-black text-lg font-light space-y-5">
+
+            <div className="text-black text-sm sm:text-base lg:text-lg font-light space-y-3 sm:space-y-4 lg:space-y-5">
               <p>
-                At DataPlay, we believe that success in data science isn’t
-                one-size-fits-all—it’s personal. Like Arjuna guided on his path,
-                we aim to help you find yours, combining academic wisdom with
-                real-world insight.{" "}
+                At DataPlay, we believe that success in data science isn&apos;t
+                one-size-fits-all—it&apos;s personal. Like Arjuna guided on his
+                path, we aim to help you find yours, combining academic wisdom
+                with real-world insight.{" "}
               </p>
 
               <p>

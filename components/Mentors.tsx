@@ -25,31 +25,31 @@ const Mentors = () => {
   ];
 
   return (
-    <section className="relative py-20 ">
-      <div className="container">
-        <div className="relative flex-center flex-col leading-none gap-5 text-center mb-26 ">
-          <div className="inline-block bg-purple text-white px-6 py-2 rounded-full text-[22px] uppercase font-semibold">
+    <section className="relative py-16 md:py-20">
+      <div className="container px-4 md:px-6">
+        <div className="relative flex-center flex-col leading-none gap-3 sm:gap-4 lg:gap-5 text-center mb-20">
+          <div className="inline-block bg-purple text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-sm sm:text-lg lg:text-[22px] uppercase font-semibold">
             Mentors
           </div>
-          <h2 className="text-[50px] font-bold text-black">Our Mentors</h2>
-          <p className="text-black text-lg">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl 2xl:text-[50px] font-bold text-black leading-tight">
+            Our Mentors
+          </h2>
+          <p className="text-black text-base sm:text-lg max-w-2xl mx-auto">
             Guiding minds towards brilliance and success.
           </p>
         </div>
 
-
-
-        {/* Mentors Grid - Added overflow-visible and increased gap */}
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-10 mb-16 ">
+        {/* Mentors Grid - Responsive layout */}
+        <div className="relative grid grid-cols-1 xl:grid-cols-2 gap-6 md:gap-10 mb-12 md:mb-16">
           {mentors.map((mentor, index) => (
             <div
               key={index}
-              className="bg-gradient-to-b from-[#FF9393] to-[#8073E5] rounded-3xl text-white relative overflow-visible min-h-[400px] flex"
+              className="bg-gradient-to-b from-[#FF9393] to-[#8073E5] rounded-2xl md:rounded-3xl text-white relative overflow-visible min-h-[300px] md:min-h-[400px] flex flex-col md:flex-row"
             >
-              {/* Image Section - Left Half */}
-              <div className="w-1/2 relative overflow-visible">
+              {/* Image Section - Responsive positioning */}
+              <div className="w-full md:w-1/2 relative overflow-visible h-48 md:h-auto">
                 {/* Image Container with Vertical Overflow */}
-                <div className="absolute inset-0 -top-16 -bottom-0 w-full overflow-visible">
+                <div className="absolute inset-0 -top-8 xl:-top-16 -bottom-0 w-full overflow-visible">
                   <Image
                     src={mentor.image}
                     alt={mentor.name}
@@ -59,22 +59,29 @@ const Mentors = () => {
                 </div>
               </div>
 
-              {/* Content Section - Right Half */}
-              <div className="w-1/2 p-8 flex flex-col justify-center relative z-20">
-                <h3 className="text-3xl font-bold mb-2">{mentor.name}</h3>
-                <h4 className="text-lg font-semibold mb-1 opacity-95">
+              {/* Content Section - Responsive padding and text */}
+              <div className="w-full md:w-1/2 p-4 md:p-6 lg:p-8 flex flex-col justify-center relative z-20">
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2">
+                  {mentor.name}
+                </h3>
+                <h4 className="text-base md:text-lg font-semibold mb-1 opacity-95">
                   {mentor.title}
                 </h4>
                 {mentor.subtitle && (
-                  <h5 className="text-sm font-medium mb-4 opacity-90">
+                  <h5 className="text-xs md:text-sm font-medium mb-3 md:mb-4 opacity-90">
                     {mentor.subtitle}
                   </h5>
                 )}
-                <p className="text-sm opacity-90 mb-6 leading-relaxed">
+                <p className="text-xs md:text-sm opacity-90 mb-4 md:mb-6 leading-relaxed">
                   {mentor.description}
                 </p>
 
-                <Button title="View Profile" icon="mdi:linkedin" className="w-fit" variant="lightOrange" />
+                <Button
+                  title="View Profile"
+                  icon="mdi:linkedin"
+                  className="w-fit text-xs md:text-sm"
+                  variant="lightOrange"
+                />
               </div>
             </div>
           ))}
@@ -83,7 +90,7 @@ const Mentors = () => {
         <Button
           title="View More"
           icon="mdi:arrow-right"
-          className="mx-auto mt-12"
+          className="mx-auto mt-8 md:mt-12"
         />
       </div>
     </section>

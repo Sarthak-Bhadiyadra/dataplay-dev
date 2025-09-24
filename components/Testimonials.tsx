@@ -3,7 +3,7 @@
 "use client";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -75,16 +75,16 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="relative py-16 lg:py-20 bg-white">
       <div className="container">
-        <div className="relative flex-center flex-col leading-none gap-5 text-center mb-16 ">
-          <div className="inline-block bg-purple text-white px-6 py-2 rounded-full text-[22px] uppercase font-semibold">
+        <div className="relative flex-center flex-col leading-none gap-3 sm:gap-4 lg:gap-5 text-center mb-8 sm:mb-12 lg:mb-16">
+          <div className="inline-block bg-purple text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-sm sm:text-lg lg:text-[22px] uppercase font-semibold">
             testimonials
           </div>
-          <h2 className="text-[50px] font-bold text-black">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl 2xl:text-[50px] font-bold text-black leading-tight">
             Our Students Speak
           </h2>
-          <p className="text-black text-lg">
+          <p className="text-black text-base sm:text-lg max-w-2xl mx-auto">
             Transformative Testimonials from our Champions
           </p>
         </div>
@@ -93,41 +93,45 @@ const Testimonials = () => {
         <div className="relative">
           <Swiper
             modules={[Navigation, Autoplay]}
-            spaceBetween={32}
+            spaceBetween={16}
             slidesPerView={1}
             navigation={{
               nextEl: ".swiper-button-next-custom",
               prevEl: ".swiper-button-prev-custom",
             }}
-            // pagination={{
-            //   clickable: true,
-            //   el: ".swiper-pagination-custom",
-            // }}
             autoplay={{
               delay: 5000,
               disableOnInteraction: false,
             }}
             breakpoints={{
+              480: {
+                slidesPerView: 1.2,
+                spaceBetween: 20,
+              },
               640: {
                 slidesPerView: 2,
                 spaceBetween: 24,
+              },
+              768: {
+                slidesPerView: 2.5,
+                spaceBetween: 28,
               },
               1024: {
                 slidesPerView: 3,
                 spaceBetween: 32,
               },
             }}
-            className="testimonials-swiper !px-6"
+            className="testimonials-swiper !px-2 sm:!px-4 lg:!px-6"
             style={{ height: "auto" }}
           >
             {testimonials.map((t) => (
               <SwiperSlide key={t.id} className="pb-2">
-                <div className="relative flex flex-col justify-between p-5 gap-5 border border-black bg-white rounded-4xl transition overflow-hidden drop-shadow-[4px_4px_0_black] h-full">
+                <div className="relative flex flex-col justify-between p-3 sm:p-4 lg:p-5 gap-3 sm:gap-4 lg:gap-5 border border-black bg-white rounded-2xl sm:rounded-3xl lg:rounded-4xl transition overflow-hidden drop-shadow-[2px_2px_0_black] sm:drop-shadow-[3px_3px_0_black] lg:drop-shadow-[4px_4px_0_black] h-full">
                   {/* Video or Text */}
                   {t.videoUrl ? (
-                    <div className="relative h-[300px]">
+                    <div className="relative h-[200px] sm:h-[250px] lg:h-[300px]">
                       <iframe
-                        className="w-full h-full rounded-3xl border border-black"
+                        className="w-full h-full rounded-xl sm:rounded-2xl lg:rounded-3xl border border-black"
                         src={t.videoUrl}
                         title={t.name}
                         frameBorder="0"
@@ -137,10 +141,10 @@ const Testimonials = () => {
                     </div>
                   ) : (
                     <div className="relative">
-                      <p className="text-black text-xl font-light line-clamp-5">
+                      <p className="text-black text-base sm:text-lg lg:text-xl font-light line-clamp-4 sm:line-clamp-5">
                         {t.text}
                       </p>
-                      <button className="text-orange font-medium transition duration-300">
+                      <button className="text-orange font-medium text-sm sm:text-base transition duration-300 hover:underline">
                         Read More
                       </button>
                     </div>
@@ -148,34 +152,40 @@ const Testimonials = () => {
 
                   {/* Profile Section */}
                   <div className="relative">
-                    <div className="flex items-center mb-4 gap-4">
-                      <div className="relative flex-center" >
+                    <div className="flex items-center mb-3 sm:mb-4 gap-3 sm:gap-4">
+                      <div className="relative flex-center">
                         <img
                           src={"/user.png"}
-                          className="size-[72px] bg-gray-300 rounded-full"
+                          className="size-12 sm:size-16 lg:size-[72px] bg-gray-300 rounded-full"
                         />
-                        <Icon icon="skill-icons:linkedin" className="size-4 absolute bottom-0 right-0" />
+                        <Icon
+                          icon="skill-icons:linkedin"
+                          className="size-3 sm:size-4 absolute bottom-0 right-0"
+                        />
                       </div>
-                      <div className="relative flex flex-col gap-0">
-                        <h4 className="text-xl font-bold">{t.name}</h4>
-                        <p className="text-sm font-medium">{t.title}</p>
+                      <div className="relative flex flex-col gap-0 flex-1 min-w-0">
+                        <h4 className="text-base sm:text-lg lg:text-xl font-bold truncate">
+                          {t.name}
+                        </h4>
+                        <p className="text-xs sm:text-sm font-medium text-gray-600 truncate">
+                          {t.title}
+                        </p>
                       </div>
                     </div>
 
                     {/* Career Path */}
-                    <div className="flex items-center justify-between">
-                      <div className="relative text-black flex flex-col gap-0 text-center">
-                        <p className="text-xl font-semibold">
+                    <div className="flex items-center justify-between gap-2 sm:gap-4">
+                      <div className="relative text-black flex flex-col gap-0 text-center flex-1 min-w-0">
+                        <p className="text-sm sm:text-base lg:text-xl font-semibold truncate">
                           {t.careerStart.role}
                         </p>
-                        <p className="text-sm font-medium">
+                        <p className="text-xs sm:text-sm font-medium text-gray-600 truncate">
                           {t.careerStart.company}
                         </p>
                       </div>
-                      <div className="flex items-center">
+                      <div className="flex items-center flex-shrink-0">
                         <svg
-                          width="51"
-                          height="16"
+                          className="w-8 sm:w-10 lg:w-[51px] h-3 sm:h-4 lg:h-4"
                           viewBox="0 0 51 16"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
@@ -186,11 +196,11 @@ const Testimonials = () => {
                           />
                         </svg>
                       </div>
-                      <div className="relative text-black flex flex-col gap-0 text-center">
-                        <p className="text-xl font-semibold">
+                      <div className="relative text-black flex flex-col gap-0 text-center flex-1 min-w-0">
+                        <p className="text-sm sm:text-base lg:text-xl font-semibold truncate">
                           {t.careerNow.role}
                         </p>
-                        <p className="text-sm font-medium">
+                        <p className="text-xs sm:text-sm font-medium text-gray-600 truncate">
                           {t.careerNow.company}
                         </p>
                       </div>
@@ -202,9 +212,9 @@ const Testimonials = () => {
           </Swiper>
 
           {/* Custom Navigation Buttons */}
-          <button className="swiper-button-prev-custom absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-orange hover:bg-darkOrange text-black w-12 h-12 rounded-full flex items-center justify-center transition duration-300 shadow-lg">
+          <button className="swiper-button-prev-custom absolute -left-2 sm:left-0 top-1/2 transform -translate-y-1/2 z-10 bg-orange hover:bg-darkOrange text-black w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center transition duration-300 shadow-lg">
             <svg
-              className="w-6 h-6"
+              className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -218,9 +228,9 @@ const Testimonials = () => {
             </svg>
           </button>
 
-          <button className="swiper-button-next-custom absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-orange hover:bg-darkOrange text-black w-12 h-12 rounded-full flex items-center justify-center transition duration-300 shadow-lg">
+          <button className="swiper-button-next-custom absolute -right-2 sm:right-0 top-1/2 transform -translate-y-1/2 z-10 bg-orange hover:bg-darkOrange text-black w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center transition duration-300 shadow-lg">
             <svg
-              className="w-6 h-6"
+              className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -238,7 +248,7 @@ const Testimonials = () => {
         <Button
           title="View More"
           icon="mdi:arrow-right"
-          className="mx-auto mt-12"
+          className="mx-auto mt-8 sm:mt-10 lg:mt-12"
         />
       </div>
     </section>
