@@ -1,88 +1,89 @@
-// components/Header.jsx
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import { Icon } from "@iconify/react";
 
 const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { name: "Home", href: "#" },
+    { name: "About Us", href: "#" },
+    { name: "Courses", href: "#" },
+    { name: "Contact Us", href: "#" },
+    { name: "Corporate Training", href: "#" },
+    { name: "Consultancy", href: "#" },
+  ];
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
-    <header className="bg-[#1d164f] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <header className="relative bg-darkBlue text-white">
+      <div className="container mx-auto px-4">
+        <div className="flex max-lg:justify-between items-center lg:gap-20 h-[62px] md:h-[100px]">
           {/* Logo */}
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <div className="flex items-center space-x-2">
-                <Image
-                  src="/Brand-Logo.svg"
-                  alt="header-logo"
-                  width={180}
-                  height={50}
-                />
-              </div>
-            </div>
+          <div className="flex-shrink-0">
+            <Image
+              src="/Brand-Logo.svg"
+              alt="header-logo"
+              width={150}
+              height={28}
+              className="h-7 w-auto md:h-12 md:w-auto"
+            />
           </div>
 
-          {/* Navigation */}
-          <nav className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              <a
-                href="#"
-                className="hover:text-purple-400 px-3 py-2 text-sm font-medium"
-              >
-                Home
-              </a>
-              <a
-                href="#"
-                className="hover:text-purple-400 px-3 py-2 text-sm font-medium"
-              >
-                About Us
-              </a>
-              <a
-                href="#"
-                className="hover:text-purple-400 px-3 py-2 text-sm font-medium"
-              >
-                Courses
-              </a>
-              <a
-                href="#"
-                className="hover:text-purple-400 px-3 py-2 text-sm font-medium"
-              >
-                Contact Us
-              </a>
-              <a
-                href="#"
-                className="hover:text-purple-400 px-3 py-2 text-sm font-medium"
-              >
-                Corporate Training
-              </a>
-            </div>
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:block">
+            <ul className="flex items-center gap-4 xl:gap-6 2xl:gap-8">
+              {navLinks.map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link.href}
+                    className="hover:text-orange text-base xl:text-lg 2xl:text-[22px] font-medium text-white transition-colors duration-200 whitespace-nowrap"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </nav>
 
-          {/* Login/Signup Button */}
-          <div className="flex items-center">
-            <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-full text-sm font-medium transition duration-200">
-              Login/Signup
-            </button>
-          </div>
-
           {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button className="text-white hover:text-purple-400">
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-          </div>
+          <button
+            onClick={toggleMobileMenu}
+            className="lg:hidden text-white hover:text-orange transition-colors duration-200 p-1 cursor-pointer"
+            aria-label="Toggle mobile menu"
+          >
+            <Icon
+              icon={isMobileMenuOpen ? "mdi:close" : "mdi:menu"}
+              className="h-[30px] w-[30px]"
+            />
+          </button>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-darkBlue border-t border-gray-700 shadow-lg z-50">
+            <nav className="px-4 py-4">
+              <ul className="flex flex-col space-y-3">
+                {navLinks.map((link, index) => (
+                  <li key={index}>
+                    <a
+                      href={link.href}
+                      className="block hover:text-orange text-base font-medium text-white transition-colors duration-200 py-2 px-1"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
